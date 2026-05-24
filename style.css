@@ -1,0 +1,222 @@
+/* ==========================================================================
+   1. Reset & Base Styles
+   ========================================================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fcfbfa; 
+    color: #2c302e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 60px 20px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Header (Our Menu) Section
+   ========================================================================== */
+.menu-main {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 600px;
+}
+
+.menu-main .title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.title-underline {
+    width: 40px;
+    height: 2px;
+    background: #b49770; 
+    margin: 15px auto;
+    border-radius: 1px;
+}
+
+.menu-main .dec {
+    font-size: 0.95rem;
+    color: #707070;
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   3. Main Grid / Card Layout (Responsive Flex)
+   ========================================================================== */
+.main {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    padding: 20px 0;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #eaeaea; 
+    border-radius: 16px; 
+    width: 320px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01), 0 10px 40px rgba(0, 0, 0, 0.02);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #b49770; 
+    box-shadow: 0 20px 40px rgba(180, 151, 112, 0.08);
+}
+
+/* ==========================================================================
+   4. Image & Half-Circle Background Styles (Magic Fix)
+   ========================================================================== */
+.img-box {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-bg {
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1; 
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- ပုံတစ်ခုချင်းစီရဲ့ နောက်ခံ Gradient အရောင်များ --- */
+.left .circle-bg {
+    background: linear-gradient(to left, #d4bda7 50%, transparent 50%); 
+}
+
+.center .circle-bg {
+    background: linear-gradient(to left, #e9caa1 50%, transparent 50%); 
+}
+
+.right .circle-bg {
+    background: linear-gradient(to left, #c2d1be 50%, transparent 50%); 
+}
+
+/* Hover လုပ်ရင် နောက်ခံအဝိုင်းလေး လည်သွားမယ့် Effect */
+.card:hover .circle-bg {
+    transform: rotate(180deg);
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    position: relative;
+    z-index: 2; 
+    clip-path: circle(50%); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover img {
+    transform: scale(1.05); 
+}
+
+/* ==========================================================================
+   5. Typography inside Cards & Button
+   ========================================================================== */
+.food-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.4;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #b49770;
+    letter-spacing: 0.5px;
+}
+
+.btn {
+    background: #1a1a1a; 
+    color: #ffffff;
+    width: 100%;
+    padding: 15px 0;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px; 
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #b49770;
+    border-color: #b49770;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   6. Responsive Media Queries
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .main {
+        gap: 25px;
+    }
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 40px 15px;
+    }
+    .menu-main {
+        margin-bottom: 40px;
+    }
+    .menu-main .title {
+        font-size: 1.8rem;
+    }
+    .main {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    .card {
+        width: 100%;
+        max-width: 340px;
+        padding: 35px 25px;
+    }
+}
