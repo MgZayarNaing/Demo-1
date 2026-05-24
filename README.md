@@ -12,6 +12,6 @@ CSS နှင့် Image Clipping အသုံးပြု၍ ဖန်တီ�
 
 ## 📸 Presentation
 
-![Final UI Result](final-result-ui.png)
+![Final UI Result](img/final-result-ui.png)
 
 ---
